@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h2>登録内容の編集</h2>
+{% if error %}
+{{ error }}
+{% endif %}
+<form action="" method="POST">
+    <table class="table">
+        <tr>
+            <th>ユーザーネーム</th>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <th>Eメールアドレス</th>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <th>パスワード</th>
+            <td>{{ form.password1 }}</td>
+        </tr>
+        <tr>
+            <th>パスワード(確認用)</th>
+            <td>{{ form.password2 }}</td>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td>{{ form.location }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">変更</button>
+    <a href="{% url 'delete' pk=pk %}" class="btn btn-primary">削除</a>
+    {% csrf_token %}
+</form>
+{% endblock content %}

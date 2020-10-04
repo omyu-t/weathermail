@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h2>ログイン</h2>
+
+
+
+<form action="" method="POST">
+    {% if error %}
+    {{ error }}
+    {% endif %}
+    <table class="table">
+        <tr>
+            <th>ユーザーネーム</th>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <th>パスワード</th>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">登録内容変更画面へ</button>
+    <a href="{% url 'register' %}" class="btn btn-primary">新規登録</a>
+    {% csrf_token %}
+</form>
+{% endblock content %}
