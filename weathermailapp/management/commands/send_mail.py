@@ -82,7 +82,7 @@ class Command(BaseCommand):
 
                 #schedule.every(1/60).minutes.do(send, FROM_ADDRESS, to_addr, msg)
                 
-        schedule.every().day.at("12:16").do(main)
+        schedule.every().day.at("07:00").do(main)
         
         while True:
             schedule.run_pending()
